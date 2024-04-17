@@ -34,6 +34,7 @@ public class Pessoa {
     @Column(name = "EMAIL_PESSOA")
     private String email;
 
+    @Column(name = "NASC_PESSOA")
     private LocalDate nascimento;
 
     @Enumerated(EnumType.STRING)

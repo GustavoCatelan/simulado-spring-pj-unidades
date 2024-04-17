@@ -51,8 +51,10 @@ public class Chefe {
     )
     private Unidade unidade;
 
+    @Column(name = "DATA_INI_CHEFE")
     private LocalDateTime inicio;
 
+    @Column(name = "DATA_FIM_CHEFE")
     private LocalDateTime fim;
 
 }
