@@ -44,18 +44,22 @@ public class PessoaService implements ServiceDTO<Pessoa, PessoaRequest, PessoaRe
 
     }
 
+    @Override
     public Pessoa findById(Long id){
         return repo.findById(id).orElse(null);
     }
 
+    @Override
     public List<Pessoa> findAll(Example<Pessoa> example){
         return repo.findAll(example);
     }
 
+    @Override
     public List<Pessoa> findAll(){
         return repo.findAll();
     }
 
+    @Override
     public Pessoa save(Pessoa entity){
         return repo.save(entity);
     }

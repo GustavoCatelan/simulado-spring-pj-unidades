@@ -24,7 +24,7 @@ public class UsuarioService implements ServiceDTO<Usuario, UsuarioRequest, Usuar
 
         if(Objects.isNull(usuarioRequest)) return null;
 
-        var pessoa = pessoaService.findById(usuarioRequest.pessoa().id());
+        var pessoa = pessoaService.toEntity(usuarioRequest.pessoa());
 
         return Usuario.builder()
                 .username(usuarioRequest.username())

@@ -43,18 +43,22 @@ public class UnidadeService implements ServiceDTO<Unidade, UnidadeRequest, Unida
                 .build();
     }
 
+    @Override
     public Unidade findById(Long id){
         return repo.findById(id).orElse(null);
     }
 
+    @Override
     public List<Unidade> findAll(Example<Unidade> example){
         return repo.findAll(example);
     }
 
+    @Override
     public List<Unidade> findAll(){
         return repo.findAll();
     }
 
+    @Override
     public Unidade save(Unidade entity){
         return repo.save(entity);
     }

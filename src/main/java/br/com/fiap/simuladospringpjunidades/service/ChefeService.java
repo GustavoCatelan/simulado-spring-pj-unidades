@@ -53,18 +53,22 @@ public class ChefeService implements ServiceDTO<Chefe, ChefeRequest, ChefeRespon
                 .build();
     }
 
+    @Override
     public Chefe findById(Long id){
         return repo.findById(id).orElse(null);
     }
 
+    @Override
     public List<Chefe> findAll(Example<Chefe> example){
         return repo.findAll(example);
     }
 
+    @Override
     public List<Chefe> findAll(){
         return repo.findAll();
     }
 
+    @Override
     public Chefe save(Chefe entity){
         return repo.save(entity);
     }
