@@ -33,14 +33,15 @@ public class PessoaService implements ServiceDTO<Pessoa, PessoaRequest, PessoaRe
 
     @Override
     public PessoaResponse toResponse(Pessoa pessoa) {
-        return new PessoaResponse(
-                pessoa.getId(),
-                pessoa.getNome(),
-                pessoa.getSobrenome(),
-                pessoa.getEmail(),
-                pessoa.getTipo(),
-                pessoa.getNascimento()
-                );
+        return PessoaResponse.builder()
+                .id(pessoa.getId())
+                .nome(pessoa.getNome())
+                .sobrenome(pessoa.getSobrenome())
+                .email(pessoa.getEmail())
+                .nascimento(pessoa.getNascimento())
+                .tipo(pessoa.getTipo())
+                .build();
+
     }
 
     public Pessoa findById(Long id){

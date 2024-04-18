@@ -34,13 +34,13 @@ public class UnidadeService implements ServiceDTO<Unidade, UnidadeRequest, Unida
 
     @Override
     public UnidadeResponse toResponse(Unidade unidade){
-        return new UnidadeResponse(
-                unidade.getId(),
-                unidade.getNome(),
-                unidade.getSigla(),
-                unidade.getDescricao(),
-                toResponse(unidade.getMacro())
-        );
+        return UnidadeResponse.builder()
+                .id(unidade.getId())
+                .nome(unidade.getNome())
+                .sigla(unidade.getSigla())
+                .descricao(unidade.getDescricao())
+                .macro(this.toResponse(unidade.getMacro()))
+                .build();
     }
 
     public Unidade findById(Long id){

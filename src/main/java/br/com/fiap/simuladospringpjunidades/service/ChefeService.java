@@ -43,14 +43,14 @@ public class ChefeService implements ServiceDTO<Chefe, ChefeRequest, ChefeRespon
 
     @Override
     public ChefeResponse toResponse(Chefe chefe) {
-        return new ChefeResponse(
-                chefe.getId(),
-                chefe.getSubstituto(),
-                chefe.getInicio(),
-                chefe.getFim(),
-                usuarioService.toResponse(chefe.getUsuario()),
-                unidadeService.toResponse(chefe.getUnidade())
-        );
+        return ChefeResponse.builder()
+                .id(chefe.getId())
+                .substituto(chefe.getSubstituto())
+                .usuario(usuarioService.toResponse(chefe.getUsuario()))
+                .unidade(unidadeService.toResponse(chefe.getUnidade()))
+                .inicio(chefe.getInicio())
+                .fim(chefe.getFim())
+                .build();
     }
 
     public Chefe findById(Long id){

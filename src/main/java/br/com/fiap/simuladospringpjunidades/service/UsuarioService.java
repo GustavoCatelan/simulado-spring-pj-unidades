@@ -39,7 +39,7 @@ public class UsuarioService implements ServiceDTO<Usuario, UsuarioRequest, Usuar
                 .id(usuario.getId())
                 .username(usuario.getUsername())
                 .password(usuario.getPassword())
-                .pessoa(this.toResponse(usuario.getPessoa()))
+                .pessoa(pessoaService.toResponse(usuario.getPessoa()))
                 .build();
     }
 
