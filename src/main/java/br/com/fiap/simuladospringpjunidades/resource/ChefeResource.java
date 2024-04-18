@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(name = "/chefe")
+@RequestMapping(value = "/chefe")
 public class ChefeResource implements ResourceDTO<ChefeRequest, ChefeResponse>{
 
     @Autowired
