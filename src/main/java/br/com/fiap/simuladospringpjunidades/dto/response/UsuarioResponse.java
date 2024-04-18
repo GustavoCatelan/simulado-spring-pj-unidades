@@ -3,11 +3,15 @@ package br.com.fiap.simuladospringpjunidades.dto.response;
 import lombok.Builder;
 
 @Builder
-public class UsuarioResponse {
+public record UsuarioResponse (
 
-    Long id;
+    Long id,
 
-    String username;
+    String username,
 
-    PessoaResponse pessoa;
+    String password,
+
+    PessoaResponse pessoa
+){
+
 }

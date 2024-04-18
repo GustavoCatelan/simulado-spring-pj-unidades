@@ -14,7 +14,7 @@ public record UsuarioRequest (
     @NotNull(message = "Senha é obrigatório!")
     String password,
 
-    PessoaRequest pessoaRequest
+    AbstractRequest pessoa
 ){
 
 }

@@ -17,15 +17,12 @@ public class UnidadeService implements ServiceDTO<Unidade, UnidadeRequest, Unida
     @Autowired
     private UnidadeRepository repo;
 
-    @Autowired
-    private UnidadeService unidadeService;
-
     @Override
     public Unidade toEntity(UnidadeRequest unidadeRequest){
 
         if(Objects.isNull(unidadeRequest)) return null;
 
-        var macro = unidadeService.findById(unidadeRequest.macro().id());
+        var macro = findById(unidadeRequest.macro().id());
 
         return Unidade.builder()
                 .nome(unidadeRequest.nome())
@@ -35,10 +32,6 @@ public class UnidadeService implements ServiceDTO<Unidade, UnidadeRequest, Unida
                 .build();
     }
 
-    public Unidade findById(Long id){
-        return repo.findById(id).orElse(null);
-    }
-
     @Override
     public UnidadeResponse toResponse(Unidade unidade){
         return new UnidadeResponse(
@@ -46,8 +39,12 @@ public class UnidadeService implements ServiceDTO<Unidade, UnidadeRequest, Unida
                 unidade.getNome(),
                 unidade.getSigla(),
                 unidade.getDescricao(),
-                unidadeService.toResponse(unidade.getMacro())
+                toResponse(unidade.getMacro())
         );
+    }
+
+    public Unidade findById(Long id){
+        return repo.findById(id).orElse(null);
     }
 
     public List<Unidade> findAll(Example<Unidade> example){
